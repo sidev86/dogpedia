@@ -17,14 +17,24 @@ h1 {
   justify-content: space-between;
 }
 
-.logo {
+.logo-div {
   display: flex;
   justify-content: left;
-  font-weight: 500;
-  font-size: 1.5rem;
   margin-left: 10rem;
+  padding-top: 0.5rem;
   //border: 1px solid black;
-  padding: 1rem;
+}
+
+.logo-img {
+  margin-right: 0.3rem;
+  padding-bottom: 0.5rem;
+}
+
+.logo-text {
+  padding-top: 0.5rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: rgba(55, 55, 55, 1);
 }
 .nav-elements {
   display: flex;

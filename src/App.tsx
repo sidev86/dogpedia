@@ -3,7 +3,7 @@ import Home from "./pages/Home";
 import Breeds from "./pages/Breeds";
 import QuizGame from "./pages/QuizGame";
 import About from "./pages/About";
-import logo from "./assets/dog_paw_logo.png";
+import logo from "./assets/dog_logo.png";
 
 function App() {
   return (
@@ -12,9 +12,9 @@ function App() {
         <nav style={{ padding: "1rem", background: "#f8f8f8" }}>
           <div className="navbar">
             <Link className="nav-link" to="/">
-              <div className="logo">
-                <img src={logo} width="50px" alt="logo" />
-                DOGPEDIA
+              <div className="logo-div">
+                <img className="logo-img" src={logo} width="50px" alt="logo" />
+                <p className="logo-text">DOGPEDIA</p>
               </div>
             </Link>
             <div className="nav-elements">
