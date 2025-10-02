@@ -21,13 +21,12 @@ h1 {
   display: flex;
   justify-content: left;
   margin-left: 10rem;
-  padding-top: 0.5rem;
   //border: 1px solid black;
 }
 
 .logo-img {
   margin-right: 0.3rem;
-  padding-bottom: 0.5rem;
+  //padding-bottom: 0.5rem;
 }
 
 .logo-text {
