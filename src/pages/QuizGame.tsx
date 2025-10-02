@@ -1,10 +1,10 @@
-function Breeds() {
+function QuizGame() {
   return (
     <div style={{ textAlign: "center", marginTop: "3rem" }}>
-      <h2>🐾 Dog Breeds List</h2>
+      <h2>🎮 Quiz: Guess the dog!</h2>
       <p>Coming Soon...</p>
     </div>
   );
 }
 
-export default Breeds;
+export default QuizGame;

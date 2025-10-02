@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  justify-content: left;
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin-left: 10rem;
+  //border: 1px solid black;
+  padding: 1rem;
+}
+.nav-elements {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  margin-right: 10rem;
+  //border: 1px solid black;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  margin-right: 2rem;
+}

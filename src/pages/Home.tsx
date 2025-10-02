@@ -3,11 +3,8 @@ import { Link } from "react-router-dom";
 function Home() {
   return (
     <div style={{ textAlign: "center", marginTop: "3rem" }}>
-      <h1>🐶 Welcome to Dogpedia</h1>
-      <p>
-        L’enciclopedia interattiva delle razze canine: cerca, esplora e gioca
-        con i quiz.
-      </p>
+      <h1>Welcome to Dogpedia</h1>
+      <p>An archive of photos and information about dog breeds.</p>
       <Link to="/breeds">
         <button
           style={{
