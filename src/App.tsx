@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
-import Breeds from "./pages/Breeds";
 import QuizGame from "./pages/QuizGame";
 import About from "./pages/About";
 import logo from "./assets/dog_logo.png";
@@ -14,7 +13,7 @@ function App() {
           <div className="max-w-6xl mx-auto px-6">
             <div className="h-16 flex items-center justify-between">
               {/* Logo */}
-              <Link to="/" className="flex items-center gap-3">
+              <div className="flex items-center gap-3">
                 <img
                   src={logo}
                   alt="Dogpedia logo"
@@ -23,15 +22,15 @@ function App() {
                 <span className="logo-text font-bold text-xl leading-none">
                   DOGPEDIA
                 </span>
-              </Link>
+              </div>
 
               {/* Menu */}
               <div className="flex items-center gap-6">
                 <Link
-                  to="/breeds"
+                  to="/"
                   className="text-gray-700 hover:text-blue-500 transition-colors"
                 >
-                  Breeds
+                  Home
                 </Link>
                 <Link
                   to="/quizgame"
@@ -53,7 +52,6 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/breeds" element={<Breeds />} />
             <Route path="/quizgame" element={<QuizGame />} />
             <Route path="/about" element={<About />} />
           </Routes>
