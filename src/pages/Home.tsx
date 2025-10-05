@@ -4,16 +4,21 @@ import axios from "axios";
 type Breed = {
   id: number;
   name: string;
+  temperament?: string;
+  origin?: string;
+  life_span?: string;
+  weight?: { metric: string };
+  height?: { metric: string };
   image?: { url: string };
 };
 
 function Home() {
-  const [search, setSearch] = useState("");
   const [breeds, setBreeds] = useState<Breed[]>([]);
   const [filtered, setFiltered] = useState<Breed[]>([]);
+  const [search, setSearch] = useState("");
+  const [selectedBreed, setSelectedBreed] = useState<Breed | null>(null);
   const [loading, setLoading] = useState(false);
 
-  // 🔹 Carica tutte le razze all'avvio (puoi limitarne il numero se vuoi)
   useEffect(() => {
     const apiKey =
       "live_7nKWx1IvPSl3A1eNse5G7flMI3Kyw9pz5II5ACTGcPetObxc2UJGq9juMUSILMTq";
@@ -34,7 +39,6 @@ function Home() {
       });
   }, []);
 
-  // 🔹 Aggiorna i risultati filtrati in base al testo scritto
   useEffect(() => {
     if (!search.trim()) {
       setFiltered(breeds);
@@ -78,7 +82,8 @@ function Home() {
             filtered.map((breed) => (
               <div
                 key={breed.id}
-                className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-4 text-center"
+                onClick={() => setSelectedBreed(breed)}
+                className="bg-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-2 transform transition-all duration-300 p-4 text-center cursor-pointer"
               >
                 {breed.image?.url ? (
                   <img
@@ -101,6 +106,45 @@ function Home() {
               No breeds found.
             </p>
           )}
+        </div>
+      )}
+
+      {/* 🔹 MODAL DETTAGLI RAZZA */}
+      {selectedBreed && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl p-6 max-w-md w-full relative shadow-lg">
+            <button
+              onClick={() => setSelectedBreed(null)}
+              className="absolute top-3 right-4 text-gray-500 hover:text-gray-700 text-xl"
+            >
+              ✕
+            </button>
+            {selectedBreed.image?.url && (
+              <img
+                src={selectedBreed.image.url}
+                alt={selectedBreed.name}
+                className="w-full h-56 object-contain rounded-lg mb-4"
+              />
+            )}
+            <h2 className="text-2xl font-bold text-emerald-900 mb-2">
+              {selectedBreed.name}
+            </h2>
+            <p className="text-gray-700 mb-1">
+              <strong>Temperament:</strong> {selectedBreed.temperament || "N/A"}
+            </p>
+            <p className="text-gray-700 mb-1">
+              <strong>Origin:</strong> {selectedBreed.origin || "Unknown"}
+            </p>
+            <p className="text-gray-700 mb-1">
+              <strong>Life span:</strong> {selectedBreed.life_span}
+            </p>
+            <p className="text-gray-700 mb-1">
+              <strong>Weight:</strong> {selectedBreed.weight?.metric} kg
+            </p>
+            <p className="text-gray-700">
+              <strong>Height:</strong> {selectedBreed.height?.metric} cm
+            </p>
+          </div>
         </div>
       )}
     </div>
