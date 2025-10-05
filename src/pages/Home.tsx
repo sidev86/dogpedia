@@ -5,6 +5,15 @@ function Home() {
     <div style={{ textAlign: "center", marginTop: "3rem" }}>
       <h1>Welcome to Dogpedia</h1>
       <p>An archive of photos and information about dog breeds.</p>
+      <input
+        type="text"
+        placeholder="Cerca una razza..."
+        style={{
+          padding: "0.5rem",
+          fontSize: "1rem",
+          marginBottom: "1rem",
+        }}
+      />
       <Link to="/breeds">
         <button
           style={{

@@ -1,5 +1,6 @@
+@import "tailwindcss";
+
 * {
-  margin: 0;
   font-family: "Noto Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 300;
@@ -10,11 +11,6 @@
 h1 {
   font-weight: 700;
   font-size: 3rem;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
 }
 
 .logo-div {
@@ -31,21 +27,7 @@ h1 {
 
 .logo-text {
   padding-top: 0.5rem;
-  font-weight: 600;
+  font-weight: 800;
   font-size: 1.5rem;
   color: rgba(55, 55, 55, 1);
-}
-.nav-elements {
-  display: flex;
-  justify-content: right;
-  align-items: center;
-  margin-right: 10rem;
-  //border: 1px solid black;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: black;
-  font-weight: 500;
-  margin-right: 2rem;
 }
