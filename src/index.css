@@ -5,6 +5,7 @@
   font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings: "wdth" 100;
+  //background-color: rgba(252, 233, 121, 1);
 }
 
 h1 {
@@ -27,5 +28,5 @@ h1 {
 .logo-text {
   padding-top: 0.5rem;
   font-size: 1.5rem;
-  color: rgba(55, 55, 55, 1);
+  //color: rgba(55, 55, 55, 1);
 }

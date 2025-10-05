@@ -9,17 +9,17 @@ function App() {
     <Router>
       <div className="min-h-screen flex flex-col">
         {/* Navbar */}
-        <nav className="bg-gray-50 shadow-sm">
-          <div className="max-w-6xl mx-auto px-6">
+        <nav className="shadow-sm">
+          <div className=" max-w-6xl mx-auto px-6">
             <div className="h-16 flex items-center justify-between">
               {/* Logo */}
               <div className="flex items-center gap-3">
                 <img
                   src={logo}
                   alt="Dogpedia logo"
-                  className="w-10 h-10 object-contain"
+                  className="w-10 h-10 mr-0.2"
                 />
-                <span className="logo-text font-bold text-xl leading-none">
+                <span className="text-emerald-900 logo-text font-bold text-xl leading-none">
                   DOGPEDIA
                 </span>
               </div>
@@ -28,19 +28,19 @@ function App() {
               <div className="flex items-center gap-6">
                 <Link
                   to="/"
-                  className="text-gray-700 hover:text-blue-500 transition-colors"
+                  className="text-gray-700  hover:text-emerald-600 transition-colors"
                 >
                   Home
                 </Link>
                 <Link
                   to="/quizgame"
-                  className="text-gray-700 hover:text-blue-500 transition-colors"
+                  className="text-gray-700  hover:text-emerald-600 transition-colors"
                 >
                   Game
                 </Link>
                 <Link
                   to="/about"
-                  className="text-gray-700 hover:text-blue-500 transition-colors"
+                  className="text-gray-700  hover:text-emerald-600 transition-colors"
                 >
                   About
                 </Link>

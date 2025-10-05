@@ -51,12 +51,12 @@ function Home() {
   }, [search, breeds]);
 
   return (
-    <div className="text-center mt-12 px-4">
+    <div className=" min-h-screen flex flex-col items-center text-center mt-12 px-4">
       <h1 className="text-4xl font-bold text-gray-800 mb-2">
         Welcome to <span className="text-emerald-900">Dogpedia</span>
       </h1>
       <p className="text-gray-600 mb-6">
-        An archive of photos and information about dog breeds.
+        An archive of photos and informations about dog breeds.
       </p>
 
       {/* Input di ricerca */}
@@ -83,7 +83,7 @@ function Home() {
               <div
                 key={breed.id}
                 onClick={() => setSelectedBreed(breed)}
-                className="bg-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-2 transform transition-all duration-300 p-4 text-center cursor-pointer"
+                className="bg-white rounded-xl shadow-xl hover:shadow-lg hover:-translate-y-2 transform transition-all duration-300 p-4 text-center cursor-pointer"
               >
                 {breed.image?.url ? (
                   <img
@@ -96,7 +96,7 @@ function Home() {
                     No image
                   </div>
                 )}
-                <h3 className="text-lg font-semibold text-gray-800">
+                <h3 className="text-lg font-semibold text-emerald-900">
                   {breed.name}
                 </h3>
               </div>
@@ -111,7 +111,7 @@ function Home() {
 
       {/* 🔹 MODAL DETTAGLI RAZZA */}
       {selectedBreed && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-emerald-900 bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-xl p-6 max-w-md w-full relative shadow-lg">
             <button
               onClick={() => setSelectedBreed(null)}
