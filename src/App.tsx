@@ -12,20 +12,20 @@ function App() {
         {/* Navbar */}
         <nav className="bg-gray-50 shadow-sm">
           <div className="max-w-6xl mx-auto px-6">
-            {/* h-16 fissa l'altezza; flex + items-center centra verticalmente */}
             <div className="h-16 flex items-center justify-between">
-              {/* logo a sinistra */}
+              {/* Logo */}
               <Link to="/" className="flex items-center gap-3">
                 <img
                   src={logo}
                   alt="Dogpedia logo"
-                  className="w-10 h-10 object-contain" // evita rimbalzi di dimensioni
+                  className="w-10 h-10 object-contain"
                 />
-                {/* uso span + leading-none per evitare margini/line-height indesiderati */}
-                <span className="font-bold text-xl leading-none">DOGPEDIA</span>
+                <span className="logo-text font-bold text-xl leading-none">
+                  DOGPEDIA
+                </span>
               </Link>
 
-              {/* menu a destra */}
+              {/* Menu */}
               <div className="flex items-center gap-6">
                 <Link
                   to="/breeds"
@@ -49,7 +49,7 @@ function App() {
             </div>
           </div>
         </nav>
-        {/* Pagina */}
+        {/* Pages Routing */}
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />

@@ -31,31 +31,35 @@ function Breeds() {
       });
   }, []);
 
-  if (loading) return <p>Caricamento in corso...</p>;
+  if (loading)
+    return <p className="text-center text-gray-600 text-lg mt-8">Loading...</p>;
 
   return (
-    <div style={{ padding: "2rem" }}>
-      <h2>🐾 Elenco razze</h2>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
+    <div className="px-6 py-8 max-w-7xl mx-auto">
+      <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">
+        🐾 Breeds List
+      </h2>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {breeds.map((breed) => (
           <div
             key={breed.id}
-            style={{
-              border: "1px solid #ddd",
-              borderRadius: "8px",
-              width: "200px",
-              padding: "1rem",
-              textAlign: "center",
-            }}
+            className="bg-emerald-900 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-4 text-center"
           >
-            {breed.image?.url && (
+            {breed.image?.url ? (
               <img
                 src={breed.image.url}
                 alt={breed.name}
-                style={{ width: "100%", borderRadius: "8px" }}
+                className="w-full h-48 object-contain rounded-lg mb-3 bg-emerald-900"
               />
+            ) : (
+              <div className="w-full h-48 bg-gray-200 rounded-lg mb-3 flex items-center justify-center text-gray-500">
+                No image
+              </div>
             )}
-            <h3>{breed.name}</h3>
+            <h3 className="text-lg font-semibold text-yellow-50">
+              {breed.name}
+            </h3>
           </div>
         ))}
       </div>
