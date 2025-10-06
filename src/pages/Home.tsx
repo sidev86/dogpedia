@@ -34,7 +34,7 @@ function Home() {
         setLoading(false);
       })
       .catch((err) => {
-        console.error("Errore nel caricamento delle razze:", err);
+        console.error("Error fetching data :(", err);
         setLoading(false);
       });
   }, []);
@@ -59,7 +59,7 @@ function Home() {
         An archive of photos and informations about dog breeds.
       </p>
 
-      {/* Input di ricerca */}
+      {/* Input Search */}
       <div className="mb-8">
         <input
           type="text"
@@ -75,7 +75,7 @@ function Home() {
         <p className="text-gray-500 text-lg mt-4">Loading breeds...</p>
       )}
 
-      {/* Risultati */}
+      {/* Breeds cards */}
       {!loading && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {filtered.length > 0 ? (
@@ -109,7 +109,7 @@ function Home() {
         </div>
       )}
 
-      {/* 🔹 MODAL DETTAGLI RAZZA */}
+      {/*  Modal breed details */}
       {selectedBreed && (
         <div className="fixed inset-0 bg-emerald-900 bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-xl p-6 max-w-md w-full relative shadow-lg">
