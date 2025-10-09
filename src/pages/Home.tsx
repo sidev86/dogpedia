@@ -51,7 +51,7 @@ function Home() {
   }, [search, breeds]);
 
   return (
-    <div className=" min-h-screen flex flex-col items-center text-center mt-12 px-4">
+    <div className="min-h-screen flex flex-col items-center text-center mt-12 px-4">
       <h1 className="text-4xl font-bold text-gray-800 mb-2">
         Welcome to <span className="text-emerald-900">Dogpedia</span>
       </h1>
@@ -83,7 +83,7 @@ function Home() {
               <div
                 key={breed.id}
                 onClick={() => setSelectedBreed(breed)}
-                className="bg-white rounded-xl shadow-xl hover:shadow-lg hover:-translate-y-2 transform transition-all duration-300 p-4 text-center cursor-pointer"
+                className="bg-white border-2 border-[#d8e8e5] rounded-xl shadow-xl hover:shadow-lg hover:-translate-y-2 transform transition-all duration-300 p-4 text-center cursor-pointer"
               >
                 {breed.image?.url ? (
                   <img

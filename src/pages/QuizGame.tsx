@@ -132,7 +132,7 @@ function QuizGame() {
       )}
 
       {isGameOver && (
-        <div className="bg-white p-48 rounded-xl shadow-xl inline-block">
+        <div className="bg-white border-2 border-[#d8e8e5] p-40 rounded-xl shadow-xl inline-block">
           <h2 className="text-2xl font-bold text-emerald-900 mb-2">
             Game Over
           </h2>
@@ -149,7 +149,7 @@ function QuizGame() {
       )}
 
       {!isGameOver && currentBreed && (
-        <div className="max-w-md mx-auto bg-white border-2 border-gray-200 rounded-xl shadow-lg p-6">
+        <div className="max-w-md mx-auto bg-white border-2 border-[#d8e8e5] rounded-xl shadow-lg p-6">
           <div className="flex justify-between mb-4 text-xl">
             <p className="text-gray-700 font-semibold">
               {Array(lives).fill("❤️").join(" ")}
