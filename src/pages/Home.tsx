@@ -79,28 +79,33 @@ function Home() {
       {!loading && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {filtered.length > 0 ? (
-            filtered.map((breed) => (
-              <div
-                key={breed.id}
-                onClick={() => setSelectedBreed(breed)}
-                className="bg-white border-2 border-[#d8e8e5] rounded-xl shadow-xl hover:shadow-lg hover:-translate-y-2 transform transition-all duration-300 p-4 text-center cursor-pointer"
-              >
-                {breed.image?.url ? (
-                  <img
-                    src={breed.image.url}
-                    alt={breed.name}
-                    className="w-full h-48 object-contain bg-gray-100 rounded-lg mb-3"
-                  />
-                ) : (
-                  <div className="w-full h-48 bg-gray-200 rounded-lg mb-3 flex items-center justify-center text-gray-500">
-                    No image
+            filtered.map(
+              (breed) => (
+                console.log(breed.name),
+                (
+                  <div
+                    key={breed.id}
+                    onClick={() => setSelectedBreed(breed)}
+                    className="bg-white border-2 border-[#d8e8e5] rounded-xl shadow-xl hover:shadow-lg hover:-translate-y-2 transform transition-all duration-300 p-4 text-center cursor-pointer"
+                  >
+                    {breed.image?.url ? (
+                      <img
+                        src={breed.image.url}
+                        alt={breed.name}
+                        className="w-full h-48 object-contain bg-gray-100 rounded-lg mb-3"
+                      />
+                    ) : (
+                      <div className="w-full h-48 bg-gray-200 rounded-lg mb-3 flex items-center justify-center text-gray-500">
+                        No image
+                      </div>
+                    )}
+                    <h3 className="text-lg font-semibold text-emerald-900">
+                      {breed.name}
+                    </h3>
                   </div>
-                )}
-                <h3 className="text-lg font-semibold text-emerald-900">
-                  {breed.name}
-                </h3>
-              </div>
-            ))
+                )
+              )
+            )
           ) : (
             <p className="text-gray-500 text-lg col-span-full">
               No breeds found.
