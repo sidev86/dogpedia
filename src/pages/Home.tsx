@@ -53,7 +53,7 @@ function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center text-center mt-12 px-4">
       <h1 className="text-4xl font-bold text-gray-800 mb-2">
-        Welcome to <span className="text-emerald-900">Dogpedia</span>
+        Welcome to <span className="text-[#004f3b]">Dogpedia</span>
       </h1>
       <p className="text-gray-600 mb-6">
         An archive of photos and informations about dog breeds.
@@ -66,7 +66,7 @@ function Home() {
           placeholder="Search breeds..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="border border-gray-300 rounded-lg px-4 py-2 w-72 text-gray-700 focus:outline-none focus:ring-2 focus:ring-emerald-900 focus:border-transparent"
+          className="border border-gray-300 rounded-lg px-4 py-2 w-72 text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#004f3b] focus:border-transparent"
         />
       </div>
 
@@ -99,7 +99,7 @@ function Home() {
                         No image
                       </div>
                     )}
-                    <h3 className="text-lg font-semibold text-emerald-900">
+                    <h3 className="text-lg font-semibold text-[#004f3b]">
                       {breed.name}
                     </h3>
                   </div>
@@ -116,7 +116,7 @@ function Home() {
 
       {/*  Modal breed details */}
       {selectedBreed && (
-        <div className="fixed inset-0 bg-emerald-900 bg-opacity-50 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-[#004f3b] bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white rounded-xl p-6 max-w-md w-full relative shadow-lg">
             <button
               onClick={() => setSelectedBreed(null)}
@@ -131,7 +131,7 @@ function Home() {
                 className="w-full h-56 object-contain rounded-lg mb-4"
               />
             )}
-            <h2 className="text-2xl font-bold text-emerald-900 mb-2">
+            <h2 className="text-2xl font-bold text-[#004f3b] mb-2">
               {selectedBreed.name}
             </h2>
             <p className="text-gray-700 mb-1">

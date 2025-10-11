@@ -118,14 +118,14 @@ function QuizGame() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen text-center px-4">
       {!isPlaying && (
-        <h1 className="text-3xl font-bold text-emerald-900 mb-6">
+        <h1 className="text-3xl font-bold text-[#004f3b] mb-6">
           🐾 Dog Quiz Game
         </h1>
       )}
       {!currentBreed && !isGameOver && (
         <button
           onClick={startGame}
-          className="bg-emerald-900 text-white px-6 py-2 rounded-lg hover:bg-emerald-800 transition"
+          className="bg-[#004f3b] text-white px-6 py-2 rounded-lg hover:bg-[#065f46] transition"
         >
           Start Game
         </button>
@@ -133,15 +133,13 @@ function QuizGame() {
 
       {isGameOver && (
         <div className="bg-white border-2 border-[#d8e8e5] p-40 rounded-xl shadow-xl inline-block">
-          <h2 className="text-2xl font-bold text-emerald-900 mb-2">
-            Game Over
-          </h2>
+          <h2 className="text-2xl font-bold text-[#004f3b] mb-2">Game Over</h2>
           <p className="text-gray-700 text-lg font-bold mb-4">
             Your score: {score}
           </p>
           <button
             onClick={startGame}
-            className="bg-emerald-900 text-white px-6 py-2 rounded-lg hover:bg-emerald-800 transition"
+            className="bg-[#004f3b] text-white px-6 py-2 rounded-lg hover:bg-[#065f46] transition"
           >
             Try Again
           </button>
@@ -160,7 +158,7 @@ function QuizGame() {
           {/* Timer bar */}
           <div className="w-full bg-gray-200 rounded-full h-3 mb-4 overflow-hidden">
             <div
-              className={`h-3 bg-emerald-900 transition-all duration-100`}
+              className={`h-3 bg-[#004f3b] transition-all duration-100`}
               style={{ width: `${timer}%` }}
             ></div>
           </div>
@@ -176,15 +174,15 @@ function QuizGame() {
               <button
                 key={opt.id}
                 onClick={() => handleAnswer(opt.name)}
-                className={`px-4 py-2 rounded-lg border bg-emerald-900 text-white transition
+                className={`px-4 py-2 rounded-lg border bg-[#004f3b] text-white transition
                 ${
                   selected
                     ? opt.name === currentBreed.name
-                      ? "bg-green-500 text-white" // ✅ Correct answer
+                      ? "bg-[#22c55e] text-white" // ✅ Correct answer
                       : opt.name === selected
-                      ? "bg-red-500 text-white" // ❌ Wrong answer
-                      : "bg-emerald-900"
-                    : "hover:bg-emerald-700"
+                      ? "bg-[#f56565] text-white" // ❌ Wrong answer
+                      : "bg-[#004f3b]"
+                    : "hover:bg-[#047857]"
                 }`}
               >
                 {opt.name}

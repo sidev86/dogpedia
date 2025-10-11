@@ -28,19 +28,19 @@ function App() {
               <div className="flex items-center gap-6">
                 <Link
                   to="/"
-                  className="text-white  hover:text-emerald-600 transition-colors"
+                  className="text-white  hover:text-[#059669] transition-colors"
                 >
                   Home
                 </Link>
                 <Link
                   to="/quizgame"
-                  className="text-white  hover:text-emerald-600 transition-colors"
+                  className="text-white  hover:text-[#059669] transition-colors"
                 >
                   Game
                 </Link>
                 <Link
                   to="/about"
-                  className="text-white hover:text-emerald-600 transition-colors"
+                  className="text-white hover:text-[#059669] transition-colors"
                 >
                   About
                 </Link>

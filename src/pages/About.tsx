@@ -1,7 +1,7 @@
 function About() {
   return (
     <div style={{ textAlign: "center", marginTop: "3rem" }}>
-      <h2 className="text-3xl font-bold text-emerald-900 mb-6">
+      <h2 className="text-3xl font-bold text-[#004f3b] mb-6">
         About Dogpedia{" "}
       </h2>
       <p className="w-1/2 mx-auto mb-6">
@@ -12,7 +12,7 @@ function About() {
         intuitive interface.
       </p>
 
-      <h2 className="text-2xl font-bold text-emerald-900 mb-2">Tools Used</h2>
+      <h2 className="text-2xl font-bold text-[#004f3b] mb-2">Tools Used</h2>
       <ul className="mb-6">
         <li>
           <span className="font-bold">React + Typescript:</span> Frontend and

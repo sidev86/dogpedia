@@ -44,13 +44,13 @@ function Breeds() {
         {breeds.map((breed) => (
           <div
             key={breed.id}
-            className="bg-emerald-900 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-4 text-center"
+            className="bg-[#004f3b] rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 p-4 text-center"
           >
             {breed.image?.url ? (
               <img
                 src={breed.image.url}
                 alt={breed.name}
-                className="w-full h-48 object-contain rounded-lg mb-3 bg-emerald-900"
+                className="w-full h-48 object-contain rounded-lg mb-3 bg-[#004f3b]"
               />
             ) : (
               <div className="w-full h-48 bg-gray-200 rounded-lg mb-3 flex items-center justify-center text-gray-500">
