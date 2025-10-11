@@ -9,7 +9,7 @@ function App() {
     <Router>
       <div className="min-h-screen flex flex-col">
         {/* Navbar */}
-        <nav className="shadow-sm">
+        <nav className="bg-[#004f3b] shadow-sm">
           <div className="max-w-6xl mx-auto px-6">
             <div className="h-16 flex items-center justify-between">
               {/* Logo */}
