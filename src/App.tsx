@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import QuizGame from "./pages/QuizGame";
 import About from "./pages/About";
-import logo from "./assets/dog_logo.png";
+import logo from "./assets/dog_logo_white.png";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
                 <img
                   src={logo}
                   alt="Dogpedia logo"
-                  className="w-10 h-10 mr-0 filter invert"
+                  className="w-10 h-10 mr-0"
                 />
                 <span className="text-white logo-text font-bold text-xl">
                   DOGPEDIA
