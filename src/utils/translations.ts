@@ -14,6 +14,12 @@ export const translations: Record<Language, Record<string, string>> = {
     height: "Height",
     unknown: "Unknown",
     no_image: "No image",
+    gameTitle: "🐾 Dog Quiz Game",
+    startGame: "Start game",
+    gameOver: "Game Over",
+    yourScore: "Your score:",
+    tryAgain: "Try Again",
+    score: "Score"
   },
   it: {
     welcome: "Benvenuto su",
@@ -28,5 +34,11 @@ export const translations: Record<Language, Record<string, string>> = {
     height: "Altezza",
     unknown: "Sconosciuta",
     no_image: "Nessuna immagine",
+    gameTitle: "🐾 Quiz delle Razze Canine",
+    startGame: "Inizia Gioco",
+    gameOver: "Game Over",
+    yourScore: "Il tuo punteggio:",
+    tryAgain: "Riprova",
+    score: "Punteggio"
   },
 };

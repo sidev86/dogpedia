@@ -3,8 +3,10 @@ import Home from "./pages/Home";
 import QuizGame from "./pages/QuizGame";
 import About from "./pages/About";
 import logo from "./assets/dog_logo_white.png";
+import { useLanguage } from "./hooks/useLanguage";
 
 function App() {
+  const { language } = useLanguage();
   return (
     <Router>
       <div className="min-h-screen flex flex-col">
@@ -52,7 +54,10 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/quizgame" element={<QuizGame />} />
+            <Route
+              path="/quizgame"
+              element={<QuizGame language={language} />}
+            />
             <Route path="/about" element={<About />} />
           </Routes>
         </main>
