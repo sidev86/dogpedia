@@ -19,7 +19,10 @@ export const translations: Record<Language, Record<string, string>> = {
     gameOver: "Game Over",
     yourScore: "Your score:",
     tryAgain: "Try Again",
-    score: "Score"
+    score: "Score",
+    navHome: "Home",
+    navGame: "Game",
+    navAbout: "About",
   },
   it: {
     welcome: "Benvenuto su",
@@ -39,6 +42,9 @@ export const translations: Record<Language, Record<string, string>> = {
     gameOver: "Game Over",
     yourScore: "Il tuo punteggio:",
     tryAgain: "Riprova",
-    score: "Punteggio"
+    score: "Punteggio",
+    navHome: "Home",
+    navGame: "Gioco",
+    navAbout: "Informazioni"
   },
 };

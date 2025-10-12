@@ -1,42 +1,36 @@
+import { useLanguage } from "../hooks/useLanguage";
+import { aboutTranslations } from "../utils/aboutTranslations";
+
 function About() {
+  const { language } = useLanguage();
+  const t = aboutTranslations[language];
+
   return (
-    <div style={{ textAlign: "center", marginTop: "3rem" }}>
-      <h2 className="text-3xl font-bold text-[#004f3b] mb-6">
-        About Dogpedia{" "}
-      </h2>
-      <p className="w-1/2 mx-auto mb-6">
-        Dogpedia is a project developed for dog lovers, conceived as an
-        interactive archive that collects information and images of various dog
-        breeds. The goal is to offer a simple and enjoyable way to explore and
-        learn more about dog breeds from around the world, with a modern and
-        intuitive interface.
-      </p>
+    <div className="px-6 py-8 max-w-4xl mx-auto text-center justify-center mt-16">
+      <h2 className="text-3xl font-bold text-[#004f3b] mb-6">{t.title}</h2>
 
-      <p className="w-1/2 mx-auto mb-6">
-        Ready for a challenge? Dive into the Dog Quiz Game and see how many
-        breeds you can recognize! The faster you guess, the higher your score.
-        Let the fun begin! 🐶🐾
-      </p>
+      <p className="mb-6">{t.description1}</p>
 
-      <h2 className="text-2xl font-bold text-[#004f3b] mb-2">Tools Used</h2>
-      <ul className="mb-6">
+      <p className="mb-6">{t.description2}</p>
+
+      <h2 className="text-2xl font-bold text-[#004f3b] mb-2">{t.toolsTitle}</h2>
+      <ul className="mb-6 space-y-2">
         <li>
-          <span className="font-bold">React + Typescript:</span> Frontend and
-          logical structure
+          <span className="font-bold">React + Typescript:</span> {t.tools.react}
         </li>
         <li>
-          <span className="font-bold">Tailwind CSS:</span> Styling
+          <span className="font-bold">Tailwind CSS:</span> {t.tools.tailwind}
         </li>
         <li>
-          <span className="font-bold">Axios:</span> API requests
+          <span className="font-bold">Axios:</span> {t.tools.axios}
         </li>
         <li>
-          <span className="font-bold">Vite:</span> Build tool
+          <span className="font-bold">Vite:</span> {t.tools.vite}
         </li>
       </ul>
 
       <p>
-        <span className="font-bold">Created by:</span> Samir Ibrahim
+        <span className="font-bold">{t.createdBy}</span> Samir Ibrahim
       </p>
     </div>
   );

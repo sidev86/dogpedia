@@ -1,9 +1,9 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import QuizGame from "./pages/QuizGame";
 import About from "./pages/About";
-import logo from "./assets/dog_logo_white.png";
 import { useLanguage } from "./hooks/useLanguage";
+import Navbar from "./components/Navbar";
 
 function App() {
   const { language } = useLanguage();
@@ -11,45 +11,7 @@ function App() {
     <Router>
       <div className="min-h-screen flex flex-col">
         {/* Navbar */}
-        <nav className="bg-[#004f3b] shadow-sm">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="h-16 flex items-center justify-between">
-              {/* Logo */}
-              <div className="flex items-center gap-1">
-                <img
-                  src={logo}
-                  alt="Dogpedia logo"
-                  className="w-10 h-10 mr-0"
-                />
-                <span className="text-white logo-text font-bold text-xl">
-                  DOGPEDIA
-                </span>
-              </div>
-
-              {/* Menu */}
-              <div className="flex items-center gap-6">
-                <Link
-                  to="/"
-                  className="text-white  hover:text-[#059669] transition-colors"
-                >
-                  Home
-                </Link>
-                <Link
-                  to="/quizgame"
-                  className="text-white  hover:text-[#059669] transition-colors"
-                >
-                  Game
-                </Link>
-                <Link
-                  to="/about"
-                  className="text-white hover:text-[#059669] transition-colors"
-                >
-                  About
-                </Link>
-              </div>
-            </div>
-          </div>
-        </nav>
+        <Navbar />
         {/* Pages Routing */}
         <main className="flex-grow">
           <Routes>
