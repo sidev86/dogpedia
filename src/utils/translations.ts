@@ -45,6 +45,6 @@ export const translations: Record<Language, Record<string, string>> = {
     score: "Punteggio",
     navHome: "Home",
     navGame: "Gioco",
-    navAbout: "Informazioni"
+    navAbout: "Info"
   },
 };
