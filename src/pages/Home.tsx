@@ -3,6 +3,7 @@ import axios from "axios";
 import { breedTranslations } from "../utils/breedTranslations";
 import { useLanguage } from "../hooks/useLanguage";
 import LanguageToggle from "../components/LanguageToggle";
+import { temperamentTranslations } from "../utils/temperamentTranslations";
 
 type Breed = {
   id: number;
@@ -141,11 +142,16 @@ function Home() {
             </h2>
             <p className="text-gray-700 mb-1">
               <strong>{t("temperament")}:</strong>{" "}
-              {selectedBreed.temperament || "N/A"}
-            </p>
-            <p className="text-gray-700 mb-1">
-              <strong>{t("origin")}:</strong>{" "}
-              {selectedBreed.origin || t("unknown")}
+              {selectedBreed.temperament
+                ? selectedBreed.temperament
+                    .split(", ")
+                    .map((temp) =>
+                      language === "it"
+                        ? temperamentTranslations[temp.trim()] || temp
+                        : temp
+                    )
+                    .join(", ")
+                : "N/A"}
             </p>
             <p className="text-gray-700 mb-1">
               <strong>{t("life_span")}:</strong> {selectedBreed.life_span}
