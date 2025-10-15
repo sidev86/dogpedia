@@ -154,7 +154,12 @@ function Home() {
                 : "N/A"}
             </p>
             <p className="text-gray-700 mb-1">
-              <strong>{t("life_span")}:</strong> {selectedBreed.life_span}
+              <strong>{t("life_span")}:</strong>{" "}
+              {selectedBreed.life_span
+                ? language === "it"
+                  ? selectedBreed.life_span.replace(/years?/gi, "anni")
+                  : selectedBreed.life_span
+                : "N/A"}
             </p>
             <p className="text-gray-700 mb-1">
               <strong>{t("weight")}:</strong> {selectedBreed.weight?.metric} kg
