@@ -4,6 +4,7 @@ import QuizGame from "./pages/QuizGame";
 import About from "./pages/About";
 import { useLanguage } from "./hooks/useLanguage";
 import Navbar from "./components/Navbar";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   const { language } = useLanguage();
@@ -23,6 +24,7 @@ function App() {
             <Route path="/about" element={<About />} />
           </Routes>
         </main>
+        <Analytics />
       </div>
     </Router>
   );
