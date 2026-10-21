@@ -5,11 +5,11 @@
   font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings: "wdth" 100;
-  //background-color: rgba(252, 233, 121, 1);
+  /*background-color: rgba(252, 233, 121, 1);*/
 }
 
 body {
-  background-color: rgba(240, 240, 240, 1);
+  background-color: #f4f7f5;
 }
 
 h1 {
@@ -25,16 +25,16 @@ h1 {
   display: flex;
   justify-content: left;
   margin-left: 10rem;
-  //border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .logo-img {
   margin-right: 0.3rem;
-  //padding-bottom: 0.5rem;
+  /* padding-bottom: 0.5rem; */
 }
 
 .logo-text {
   padding-top: 0.5rem;
   font-size: 1.5rem;
-  //color: rgba(55, 55, 55, 1);
+  /* color: rgba(55, 55, 55, 1); */
 }

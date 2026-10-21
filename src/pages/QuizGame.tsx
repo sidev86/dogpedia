@@ -118,7 +118,7 @@ function QuizGame({ language }: { language: "en" | "it" }) {
       )}
 
       {isGameOver && (
-        <div className="bg-white border-2 border-[#d8e8e5] p-10 rounded-xl shadow-xl inline-block">
+        <div className="bg-white border-2 border-[#004f3b] p-10 rounded-xl shadow-xl inline-block">
           <h2 className="text-2xl font-bold text-[#004f3b] mb-2">
             {t.gameOver}
           </h2>
@@ -135,7 +135,7 @@ function QuizGame({ language }: { language: "en" | "it" }) {
       )}
 
       {!isGameOver && currentBreed && (
-        <div className="max-w-md mx-auto bg-white border-2 border-[#d8e8e5] rounded-xl shadow-lg p-6">
+        <div className="max-w-md mx-auto bg-white border-2 border-[#004f3b] rounded-xl shadow-lg p-6">
           <div className="flex justify-between mb-4 text-xl">
             <p className="text-gray-700 font-semibold">
               {Array(lives).fill("❤️").join(" ")}
@@ -170,8 +170,8 @@ function QuizGame({ language }: { language: "en" | "it" }) {
           ? opt.name === currentBreed.name
             ? "bg-[#22c55e]"
             : opt.name === selected
-            ? "bg-[#f56565]"
-            : "bg-[#004f3b]"
+              ? "bg-[#f56565]"
+              : "bg-[#004f3b]"
           : "hover:bg-[#047857]"
       }`}
               >

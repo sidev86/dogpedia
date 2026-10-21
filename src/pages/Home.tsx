@@ -92,7 +92,7 @@ function Home() {
                 <div
                   key={breed.id}
                   onClick={() => setSelectedBreed(breed)}
-                  className="bg-white border-2 border-[#d8e8e5] rounded-xl shadow-xl hover:shadow-lg hover:-translate-y-2 transform transition-all duration-300 p-4 text-center cursor-pointer"
+                  className="bg-white border-2 border-[#c8cccb] rounded-xl shadow-xl hover:shadow-lg hover:-translate-y-2 transform transition-all duration-300 p-4 text-center cursor-pointer"
                 >
                   {breed.image?.url ? (
                     <img
@@ -124,7 +124,7 @@ function Home() {
           <div className="bg-white rounded-xl p-6 max-w-md w-full relative shadow-lg">
             <button
               onClick={() => setSelectedBreed(null)}
-              className="absolute top-3 right-4 text-gray-500 hover:text-gray-700 text-xl"
+              className="absolute top-3 right-4 text-gray-500 hover:text-gray-700 text-xl cursor-pointer"
             >
               ✕
             </button>
@@ -145,11 +145,22 @@ function Home() {
               {selectedBreed.temperament
                 ? selectedBreed.temperament
                     .split(", ")
-                    .map((temp) =>
-                      language === "it"
-                        ? temperamentTranslations[temp.trim()] || temp
-                        : temp
-                    )
+                    .map((temperament) => {
+                      const capitalizedTemp =
+                        String(temperament).charAt(0).toUpperCase() +
+                        String(temperament).slice(1).trim();
+
+                      console.log("Capitalized Temp:", capitalizedTemp);
+                      console.log(
+                        "Translated Temp:",
+                        temperamentTranslations[capitalizedTemp],
+                      );
+
+                      return language === "it"
+                        ? temperamentTranslations[capitalizedTemp] ||
+                            temperament
+                        : temperament;
+                    })
                     .join(", ")
                 : "N/A"}
             </p>
@@ -157,15 +168,25 @@ function Home() {
               <strong>{t("life_span")}:</strong>{" "}
               {selectedBreed.life_span
                 ? language === "it"
-                  ? selectedBreed.life_span.replace(/years?/gi, "anni")
-                  : selectedBreed.life_span
+                  ? selectedBreed.life_span + " anni"
+                  : selectedBreed.life_span + " years"
                 : "N/A"}
             </p>
             <p className="text-gray-700 mb-1">
-              <strong>{t("weight")}:</strong> {selectedBreed.weight?.metric} kg
+              <strong>{t("weight") + "(kg)"}:</strong>{" "}
+              {language === "it"
+                ? selectedBreed.weight?.metric
+                    .replace(/Male/g, "Maschio")
+                    .replace(/Female/g, "Femmina")
+                : selectedBreed.weight?.metric}
             </p>
             <p className="text-gray-700">
-              <strong>{t("height")}:</strong> {selectedBreed.height?.metric} cm
+              <strong>{t("height") + "(cm)"}:</strong>{" "}
+              {language === "it"
+                ? selectedBreed.height?.metric
+                    .replace(/Male/g, "Maschio")
+                    .replace(/Female/g, "Femmina")
+                : selectedBreed.height?.metric}
             </p>
           </div>
         </div>
