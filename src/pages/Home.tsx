@@ -3,18 +3,8 @@ import axios from "axios";
 import { breedTranslations } from "../utils/breedTranslations";
 import { useLanguage } from "../hooks/useLanguage";
 import LanguageToggle from "../components/LanguageToggle";
-import { temperamentTranslations } from "../utils/temperamentTranslations";
-
-type Breed = {
-  id: number;
-  name: string;
-  temperament?: string;
-  origin?: string;
-  life_span?: string;
-  weight?: { metric: string };
-  height?: { metric: string };
-  image?: { url: string };
-};
+import BreedCard, { type Breed } from "../components/BreedCard";
+import SelectedBreedCard from "../components/SelectedBreedCard";
 
 function Home() {
   const [breeds, setBreeds] = useState<Breed[]>([]);
@@ -82,35 +72,13 @@ function Home() {
       {!loading && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {filtered.length > 0 ? (
-            filtered.map((breed) => {
-              const translatedName =
-                language === "it"
-                  ? breedTranslations[breed.name] || breed.name
-                  : breed.name;
-
-              return (
-                <div
-                  key={breed.id}
-                  onClick={() => setSelectedBreed(breed)}
-                  className="bg-white border-2 border-[#c8cccb] rounded-xl shadow-xl hover:shadow-lg hover:-translate-y-2 transform transition-all duration-300 p-4 text-center cursor-pointer"
-                >
-                  {breed.image?.url ? (
-                    <img
-                      src={breed.image.url}
-                      alt={translatedName}
-                      className="w-full h-48 object-contain bg-gray-100 rounded-lg mb-3"
-                    />
-                  ) : (
-                    <div className="w-full h-48 bg-gray-200 rounded-lg mb-3 flex items-center justify-center text-gray-500">
-                      {t("no_image")}
-                    </div>
-                  )}
-                  <h3 className="text-lg font-semibold text-[#004f3b]">
-                    {translatedName}
-                  </h3>
-                </div>
-              );
-            })
+            filtered.map((breed) => (
+              <BreedCard
+                key={breed.id}
+                breed={breed}
+                onSelect={setSelectedBreed}
+              />
+            ))
           ) : (
             <p className="text-gray-500 text-lg col-span-full">
               {t("no_breeds")}
@@ -120,76 +88,10 @@ function Home() {
       )}
 
       {selectedBreed && (
-        <div className="fixed inset-0 bg-[#004f3b] bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl p-6 max-w-md w-full relative shadow-lg">
-            <button
-              onClick={() => setSelectedBreed(null)}
-              className="absolute top-3 right-4 text-gray-500 hover:text-gray-700 text-xl cursor-pointer"
-            >
-              ✕
-            </button>
-            {selectedBreed.image?.url && (
-              <img
-                src={selectedBreed.image.url}
-                alt={selectedBreed.name}
-                className="w-full h-56 object-contain rounded-lg mb-4"
-              />
-            )}
-            <h2 className="text-2xl font-bold text-[#004f3b] mb-2">
-              {language === "it"
-                ? breedTranslations[selectedBreed.name] || selectedBreed.name
-                : selectedBreed.name}
-            </h2>
-            <p className="text-gray-700 mb-1">
-              <strong>{t("temperament")}:</strong>{" "}
-              {selectedBreed.temperament
-                ? selectedBreed.temperament
-                    .split(", ")
-                    .map((temperament) => {
-                      const capitalizedTemp =
-                        String(temperament).charAt(0).toUpperCase() +
-                        String(temperament).slice(1).trim();
-
-                      console.log("Capitalized Temp:", capitalizedTemp);
-                      console.log(
-                        "Translated Temp:",
-                        temperamentTranslations[capitalizedTemp],
-                      );
-
-                      return language === "it"
-                        ? temperamentTranslations[capitalizedTemp] ||
-                            temperament
-                        : temperament;
-                    })
-                    .join(", ")
-                : "N/A"}
-            </p>
-            <p className="text-gray-700 mb-1">
-              <strong>{t("life_span")}:</strong>{" "}
-              {selectedBreed.life_span
-                ? language === "it"
-                  ? selectedBreed.life_span + " anni"
-                  : selectedBreed.life_span + " years"
-                : "N/A"}
-            </p>
-            <p className="text-gray-700 mb-1">
-              <strong>{t("weight") + "(kg)"}:</strong>{" "}
-              {language === "it"
-                ? selectedBreed.weight?.metric
-                    .replace(/Male/g, "Maschio")
-                    .replace(/Female/g, "Femmina")
-                : selectedBreed.weight?.metric}
-            </p>
-            <p className="text-gray-700">
-              <strong>{t("height") + "(cm)"}:</strong>{" "}
-              {language === "it"
-                ? selectedBreed.height?.metric
-                    .replace(/Male/g, "Maschio")
-                    .replace(/Female/g, "Femmina")
-                : selectedBreed.height?.metric}
-            </p>
-          </div>
-        </div>
+        <SelectedBreedCard
+          breed={selectedBreed}
+          onClose={() => setSelectedBreed(null)}
+        />
       )}
     </div>
   );
