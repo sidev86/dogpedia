@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import { translations } from "../utils/translations";
 import { breedTranslations } from "../utils/breedTranslations";
@@ -38,7 +38,7 @@ function QuizGame({ language }: { language: "en" | "it" }) {
       .catch((err) => console.error(err));
   }, []);
 
-  const startNewRound = () => {
+  const startNewRound = useCallback(() => {
     if (breeds.length < 4) return;
 
     setSelected(null);
@@ -53,11 +53,13 @@ function QuizGame({ language }: { language: "en" | "it" }) {
     const allOptions = [...wrong, correct].sort(() => 0.5 - Math.random());
     setCurrentBreed(correct);
     setOptions(allOptions);
-  };
+  }, [breeds]);
 
   useEffect(() => {
     if (isGameOver || !currentBreed) return;
+
     if (timer <= 0) {
+      if (selected) return;
       setSelected(currentBreed?.name ?? null);
       setLives((l) => l - 1);
       if (lives - 1 <= 0) {
@@ -70,7 +72,7 @@ function QuizGame({ language }: { language: "en" | "it" }) {
 
     const interval = setInterval(() => setTimer((t) => t - 1), 100);
     return () => clearInterval(interval);
-  }, [timer, isGameOver, currentBreed]);
+  }, [isGameOver, currentBreed, timer, lives, selected, startNewRound]);
 
   const handleAnswer = (answer: string | null) => {
     if (!currentBreed || selected) return;
